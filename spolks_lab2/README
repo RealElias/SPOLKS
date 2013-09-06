@@ -1,0 +1,5 @@
+Program is a simple echo server. It connects on 228 port.
+
+/src    - source files
+/bin    - binary files
+/target - executable jar file and sript to start

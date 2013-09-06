@@ -21,6 +21,7 @@ public class EchoServer {
 		}
 		catch (IOException e) {
 			System.out.println("We have a problem: " + e);
+			return;
 		} 
 
 		try {
@@ -31,7 +32,7 @@ public class EchoServer {
 			String message;
 			while (true) {
 				message = inputStream.readLine();
-				outputStream.println(message); 
+				outputStream.println("Take you stuff back: " + message); 
 			}
 		} 
 		catch (IOException e) {

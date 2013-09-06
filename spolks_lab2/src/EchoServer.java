@@ -8,35 +8,35 @@ import java.net.Socket;
 
 public class EchoServer {
 
-	public static void main(String args[]) {
+    public static void main(String args[]) {
 
-		ServerSocket echoServer = null;
-		Socket clientSocket = null;
+        ServerSocket echoServer = null;
+        Socket clientSocket = null;
 
-		BufferedReader inputStream;
-		PrintStream outputStream;
+        BufferedReader inputStream;
+        PrintStream outputStream;
 
-		try {
-			echoServer = new ServerSocket(228);
-		}
-		catch (IOException e) {
-			System.out.println("We have a problem: " + e);
-			return;
-		} 
+        try {
+            echoServer = new ServerSocket(228);
+        }
+        catch (IOException e) {
+            System.out.println("We have a problem: " + e);
+            return;
+        } 
 
-		try {
-			clientSocket = echoServer.accept();
-			inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-			outputStream = new PrintStream(clientSocket.getOutputStream());
+        try {
+            clientSocket = echoServer.accept();
+            inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            outputStream = new PrintStream(clientSocket.getOutputStream());
 
-			String message;
-			while (true) {
-				message = inputStream.readLine();
-				outputStream.println("Take you stuff back: " + message); 
-			}
-		} 
-		catch (IOException e) {
-			System.out.println("We have a problem: " + e);
-		}
-	}
+            String message;
+            while (true) {
+                message = inputStream.readLine();
+                outputStream.println("Take you stuff back: " + message); 
+            }
+        } 
+        catch (IOException e) {
+            System.out.println("We have a problem: " + e);
+        }
+    }
 }
